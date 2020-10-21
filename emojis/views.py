@@ -28,8 +28,20 @@ class EmojiDetail(APIView):
       return NotFound()
   
   def get(self, request, pk):
-    emoji = self.get_one(pk)
+    emoji = self.get_one(pk=pk)
     serializer = EmojiSerializer(emoji)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-  
+  def put(self, request, pk):
+    emoji = self.get_one(pk=pk)
+    serializer = EmojiSerializer(emoji, data=request.data)
+    if serializer.is_valid():
+      serializer.save()
+      return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+    
+  def delete(self, request, pk):
+    emoji = self.get_one(pk=pk)
+    emoji.delete()
+
+    return Response(status=status.HTTP_204_NO_CONTENT)
