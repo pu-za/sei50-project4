@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,10 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'project',
     'rest_framework',
+    'jwt_auth',
     'emojis',
-    
 ]
 
 MIDDLEWARE = [
@@ -80,11 +80,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'emojis',
+        'NAME': 'emojis-django',
         'HOST': 'localhost',
         'PORT': 5432
     }
 }
+
 
 
 # Password validation
@@ -104,6 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'jwt_auth.User'
 
 
 # Internationalization
