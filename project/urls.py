@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/emojis/', include('emojis.urls')),
     path('api/auth/', include('jwt_auth.urls')),
-    path('api/comments/', include('comments.urls'))
+    path('api/comments/', include('comments.urls')),
+    path('api/likes/', include('likes.urls'))
 ]
