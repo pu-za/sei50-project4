@@ -8,3 +8,6 @@ class User(AbstractUser):
   name = models.CharField(max_length=50)
   image = models.CharField(max_length=300)
   date = models.DateTimeField(auto_now_add=True)
+
+  def __str__(self):
+    return f'{self.email}'

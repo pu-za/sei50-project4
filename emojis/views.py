@@ -1,13 +1,13 @@
 from rest_framework.views import APIView 
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, PermissionDenied
 
 from .models import Emoji
 from .serializers.common import EmojiSerializer
 
 class EmojiList(APIView):
-
+  # get all emojis from db
   def get(self, request):
     emojis = Emoji.objects.all()
     serializer = EmojiSerializer(emojis, many=True)
@@ -32,16 +32,27 @@ class EmojiDetail(APIView):
     serializer = EmojiSerializer(emoji)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+  def is_emoji_user(self, emoji, user):
+    if emoji.user.id != user.id:
+      raise PermissionDenied()
+
   def put(self, request, pk):
+    request.data['user'] = request.user.id
     emoji = self.get_one(pk=pk)
+    self.is_emoji_user(emoji, request.user)
+
     serializer = EmojiSerializer(emoji, data=request.data)
+
     if serializer.is_valid():
       serializer.save()
       return Response(serializer.data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
     
   def delete(self, request, pk):
+    request.data['user'] = request.user.id
     emoji = self.get_one(pk=pk)
+
+    self.is_emoji_user(emoji, request.user)
     emoji.delete()
 
     return Response(status=status.HTTP_204_NO_CONTENT)

@@ -10,6 +10,8 @@ from emojis.models import Emoji
 from .models import Like
 
 class Likes(APIView):
+
+  # get all likes from single emoji
   def get(self, request, emojiId):
     emoji = Emoji.objects.get(pk=emojiId)
     likes = Like.objects.all()
@@ -39,8 +41,14 @@ class LikeDetail(APIView):
   def is_like_user(self, like , user):
       if like.user.id != user.id:
         raise PermissionDenied()
-  def delete(self, request, pk):
+
+  def delete(self, request, pk, emojiId):
+      request.data['user'] = request.user.id
       like = self.get_one(pk=pk)
+      
+
+      if str(like.emoji.id) != str(emojiId):
+        return Response({'msg': 'Emoji not found.'}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
       self.is_like_user(like, request.user)
       like.delete()
       return Response(status=status.HTTP_204_NO_CONTENT)
