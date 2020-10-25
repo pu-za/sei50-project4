@@ -47,6 +47,18 @@
   align-items: center;
   
 }
+.logout
+{
+  width: 10%;
+  height: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
 .user-menu
 {
   width: calc(100% + 30px);

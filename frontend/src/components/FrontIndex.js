@@ -13,7 +13,7 @@ class FrontIndex extends Component {
       <Fragment>
         <div className="board">
           <span>Express Yourself</span> 
-          <Link>get started</Link>
+          <Link to='/register'>get started</Link>
 
           
         </div>

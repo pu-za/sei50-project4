@@ -4,28 +4,58 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import FrontIndex from './components/FrontIndex'
 import Login from './auth/Login'
+import Register from './auth/Register'
 
 class App extends React.Component {
-  
+  state = {
+    loggedIn: false
+
+  }
+
+
+
+  setUser = () => {
+    if (localStorage.getItem('token')) {
+      this.setState({ loggedIn: true })
+    } else {
+      this.setState({ loggedIn: false })
+    }
+  }
+
   render() {
+
+    const { loggedIn } = this.state
     return (
       <BrowserRouter>
         <Fragment>
           
           <header className="head">
             
-            <Header />
+            <Header loggedIn={loggedIn} setUser={this.setUser} />
           </header>
           
           <main className="main">
             <Switch>
 
-              <Route exact path = '/' >
-                <FrontIndex />
-              </Route>
-              <Route exact path='/login'>
-                <Login />
-              </Route>
+              {
+                !loggedIn ? <Fragment>
+                  <Route exact path = '/' >
+                    <FrontIndex loggedIn={loggedIn} setUser={this.setUser} />
+                  </Route>
+                  <Route exact path='/login'>
+                    <Login loggedIn={loggedIn} setUser={this.setUser} />
+                  </Route>
+                  <Route exact path='/register'>
+                    <Register loggedIn={loggedIn} setUser={this.setUser} />
+                  </Route>
+                </Fragment>
+                  : <Fragment>
+                    <Route exact path = '/' >
+                      user logged in
+                    </Route>
+                  </Fragment>
+              }
+              
               
 
             </Switch>
