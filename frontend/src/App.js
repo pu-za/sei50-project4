@@ -5,15 +5,16 @@ import Header from './components/Header'
 import FrontIndex from './components/FrontIndex'
 import Login from './auth/Login'
 import Register from './auth/Register'
+import FrontPage from './components/FrontPage'
+import { getEmojis } from './actions/emoji'
+import Emoji from './components/Emoji'
 
 class App extends React.Component {
   state = {
-    loggedIn: false
-
+    loggedIn: false,
+    emojis: [],
+    menu: false
   }
-
-
-
   setUser = () => {
     if (localStorage.getItem('token')) {
       this.setState({ loggedIn: true })
@@ -21,20 +22,31 @@ class App extends React.Component {
       this.setState({ loggedIn: false })
     }
   }
+  setMenu = (state) => {
+    
+    this.setState({ menu: state })
+  }
+
+  async componentDidMount() {
+    
+    const res = await getEmojis()
+    this.setState({ emojis: res })
+    
+  }
 
   render() {
 
-    const { loggedIn } = this.state
+    const { loggedIn, emojis } = this.state
     return (
       <BrowserRouter>
         <Fragment>
           
           <header className="head">
             
-            <Header loggedIn={loggedIn} setUser={this.setUser} />
+            <Header loggedIn={loggedIn} setUser={this.setUser} menu={this.state.menu} setMenu={this.setMenu} />
           </header>
           
-          <main className="main">
+          <main className="main" onClick={ ()=> this.setMenu(false)}>
             <Switch>
 
               {
@@ -51,8 +63,10 @@ class App extends React.Component {
                 </Fragment>
                   : <Fragment>
                     <Route exact path = '/' >
-                      user logged in
+                      <FrontPage loggedIn={loggedIn} emojis={emojis} />
                     </Route>
+                    <Route exact path='/emojis/:id' component={Emoji} />
+
                   </Fragment>
               }
               
@@ -60,7 +74,7 @@ class App extends React.Component {
 
             </Switch>
           </main>
-          <footer className="footer">
+          <footer className="footer" onClick={ ()=> this.setMenu(false)}>
             
             <Footer />
           </footer>

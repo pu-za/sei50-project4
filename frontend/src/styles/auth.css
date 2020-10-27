@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+.container
+{
+  width: 75vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  display: flex;
+  align-items: flex-start;
+  background-color: white;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.auth-form
+{
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  animation-name: jump;
+  animation-duration: 0.5s;
+}
+@keyframes jump {
+  from { width: 0; }
+  to { width: 40%; }
+
+}
+.auth-form > h1
+{
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+}
+.auth-input
+{
+  height: 6.5vh;
+  width: 100%;
+  color: #000;
+  border: none;
+  background-color: lightseagreen;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 9.5px;
+  border-radius: 4.5px;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+.input-label
+{
+  height: 5.5vh;
+  width: 100%;
+  margin-bottom: 15px;
+  color: #000;
+  position: relative;
+  border-radius: 3.5px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: text;
+  background-color: lightseagreen;
+
+}
+
+.input-label > span
+{
+  position: absolute;
+  top: 2.5px;
+  left: 5px;
+  color: #000;
+  font-size: 12px;
+
+}
+
+
+.auth-button
+{
+  height: 35px;
+  width: 14vh;
+  
+  border-radius: 4.5px;
+
+}

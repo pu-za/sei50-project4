@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom'
 import { logout } from '../actions/auth'
 class Header extends Component {
   state = {
-    menu: false,
     loggedIn: this.props.loggedIn
   }
 
@@ -27,7 +26,7 @@ class Header extends Component {
 
   render() {
     
-    const { history } = this.props
+    const { history, menu } = this.props
     const { loggedIn } = this.props
 
     return (
@@ -36,25 +35,33 @@ class Header extends Component {
           loggedIn && <button className="logout" onClick={ () => this.handleLogout() }>Logout</button>
         }
         
-        <div className="webName">Showcase emoji</div>
+        <div className="webName" onClick={ () => history.push('/')}>Showcase emoji</div>
         <div className="toggleBox">
 
-          <button className="toggleButton" onClick={()=> this.setState({ menu: !this.state.menu })}>hi</button>
+          <button className="toggleButton" onClick={()=> this.props.setMenu( !menu )}>Menu</button>
           {
-            !loggedIn && this.state.menu && <Fragment>
-              <div className="user-menu">
-                <div className="nav" onClick={ ()=> history.push('/')}>Home</div>
+            !loggedIn && this.props.menu && <Fragment>
+              <div className="user-menu" >
+                <div className="nav" onClick={ ()=> { 
+                  history.push('/'), this.props.setMenu(false) 
+                }}>Home</div>
                 <hr />
-                <div className="nav" onClick={ ()=> history.push('/login') }>Sign in</div>
-                <div className="nav" onClick={ ()=> history.push('/register') }>Sign up</div>
+                <div className="nav" onClick={ ()=> { 
+                  history.push('/login'), this.props.setMenu(false) 
+                }}>Sign in</div>
+                <div className="nav" onClick={ ()=> { 
+                  history.push('/register'), this.props.setMenu(false) 
+                }}>Sign up</div>
                 <hr />
               </div>
             </Fragment>
           }
           {
-            loggedIn && this.state.menu && <Fragment>
+            loggedIn && this.props.menu && <Fragment>
               <div className="user-menu">
-                <div className="nav" onClick={ ()=> history.push('/') }>Home</div>
+                <div className="nav" onClick={ ()=> { 
+                  history.push('/'), this.props.setMenu(false) 
+                }}>Home</div>
                   
               </div>
             </Fragment>

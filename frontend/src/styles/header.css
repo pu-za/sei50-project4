@@ -24,6 +24,7 @@
   text-align: center;
   font-size: 19.5px;
   height: 35px;
+  cursor: pointer;
 }
 .toggleBox
 {
@@ -36,6 +37,8 @@
   position: absolute;
   top: 15px;
   right: 30px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 .toggleButton
 {
@@ -58,43 +61,55 @@
   position: absolute;
   top: 15px;
   left: 30px;
+  
 }
+
 .user-menu
 {
-  width: calc(100% + 30px);
+  width: 100%;
   height: auto;
   position: absolute;
-  top: 35px;
-  left: 0;
+  top: 45px;
+  right: 0;
+  z-index: 3;
   
-  background-color: #fff;
+  background-color: lightgray;
   animation-name: show;
-  animation-duration: 0.3s;
-  margin-left: 1px;
-
+  animation-duration: 0.5s;
+  margin-right: -0px;
+  border-radius: 12px 12px 12px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid gray;
 }
 @keyframes show {
   from {width: 0px;}
-  to {width: 100%;}
+  to {width: calc(100% + 30px);}
 }
 
-.user-menu > nav
+.user-menu > .nav
 {
   width: 100%;
-  min-height: 7.5vh;
-  margin-bottom: 5px;
+  min-height: 5.5vh;
   padding-left: 10px;
   padding-right: 10px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  font-size: 17.5px;
-  
+  font-size: 14.5px;
+  cursor: pointer;
+  text-align: center;
+
+  border: none;
+
 }
-.user-menu > nav:hover
+.nav:hover
 {
-  color: lightblue;
-  border-right: 5px solid lightblue;
+  color: green;
+  font-weight: bold;
 }
 .user-menu > hr
 {

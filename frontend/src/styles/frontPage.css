@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+.categories
+{
+  width: 70%;
+  height: 9vh;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  font-size: 14.5px;
+  color: #000;
+}
+.category
+{
+  min-width: 120px;
+  height: 35px;
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.category:hover
+{
+  color: lightblue;
+  font-weight: bold;
+}
+
+.category-content
+{
+  width: 100%;
+  padding: 30px;
+  min-height: 9vh;
+  font-size: 14.5px;
+  margin-bottom: 30px;
+}
+.category-title
+{
+  width: 100%;
+  font-size: 17.5px;
+  color: teal;
+  margin-bottom: 30px;
+  text-align: left;
+  padding-left: 20px;
+}
+.category-describe
+{
+  width: 100%;
+  font-size: 14.5px;
+  color: teal;
+  text-align: justify;
+  min-height: 9vh;
+  border-left: 5px dotted teal;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.emojis-box
+{
+  width: 100%;
+  height: auto;
+  display: block;
+  background-color: lightgreen;
+  overflow: hidden;
+}
+.image
+{
+  width: 10%;
+  height: 75px;
+  overflow: hidden;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 7.5px;
+}
+.image img
+{
+  max-width: 100%;
+  max-height: 100%;
+
+}

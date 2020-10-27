@@ -3,7 +3,7 @@ from django.db import models
 class Emoji(models.Model):
   name = models.CharField(max_length=50)
   category = models.CharField(max_length=50)
-  image = models.CharField(max_length=300)
+  image = models.CharField(max_length=99999)
   date = models.DateTimeField(auto_now_add=True)
 
   def __str__(self):
