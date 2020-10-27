@@ -31,7 +31,6 @@ class App extends React.Component {
     
     const res = await getEmojis()
     this.setState({ emojis: res })
-    
   }
 
   render() {
@@ -65,8 +64,10 @@ class App extends React.Component {
                     <Route exact path = '/' >
                       <FrontPage loggedIn={loggedIn} emojis={emojis} />
                     </Route>
+                    
+                      
                     <Route exact path='/emojis/:id' component={Emoji} />
-
+                    
                   </Fragment>
               }
               

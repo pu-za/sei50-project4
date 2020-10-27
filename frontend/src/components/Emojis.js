@@ -4,19 +4,20 @@ import { withRouter } from 'react-router-dom'
 class Emojis extends Component {
 
 
+
   render() {
     const { emojis, history, element } = this.props
     
-
+    
     return (
       <Fragment>
         <div className="row" ref={element}>
 
           <div className="category-content">
             <div className="category-title">
-              Flat Emoji 1.0
+              Activity
 
-              <button onClick={ () => window.scrollTo({ top: 0 })}>scroll</button>
+              <button className="scroll-button" onClick={ () => window.scrollTo({ top: 0 })}>scroll</button>
             </div>
             <div className="category-describe">
 

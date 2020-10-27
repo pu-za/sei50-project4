@@ -48,3 +48,8 @@ export const logout = async(history) => {
   console.log('user logged out')
   return history.push('/')
 }
+export const getUsers = async() => {
+  const res = await axios.get('/api/auth')
+  
+  return res.data
+}

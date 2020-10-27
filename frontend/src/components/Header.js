@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
 import { logout } from '../actions/auth'
+import logoutimg from '../styles/logout.png'
 class Header extends Component {
   state = {
     loggedIn: this.props.loggedIn
@@ -32,7 +33,7 @@ class Header extends Component {
     return (
       <Fragment>
         {
-          loggedIn && <button className="logout" onClick={ () => this.handleLogout() }>Logout</button>
+          loggedIn && <button className="logout" onClick={ () => this.handleLogout() }><img src={ logoutimg } height="24px" /></button>
         }
         
         <div className="webName" onClick={ () => history.push('/')}>Showcase emoji</div>

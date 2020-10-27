@@ -9,7 +9,7 @@
   justify-content: flex-start;
   display: flex;
   align-items: flex-start;
-  background-color: white;
+  background-color: rgb(233, 243, 233);
   flex-direction: column;
   flex-wrap: wrap;
 }

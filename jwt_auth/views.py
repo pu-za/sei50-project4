@@ -12,8 +12,16 @@ from rest_framework.permissions import IsAuthenticated
 import jwt
 
 User = get_user_model()
-
+class AllUsers(APIView):
+  def get(self, request):
+    
+    users = User.objects.all()
+    
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+    
 class Register(APIView):
+  
 
   def post(self, request):
     user = UserSerializer(data=request.data)

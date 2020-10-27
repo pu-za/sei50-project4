@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { login } from '../actions/auth'
 
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 
 class Login extends Component {
@@ -52,6 +52,8 @@ class Login extends Component {
             </label>
             <button className='auth-button' type='submit'>Login</button>
           </form>
+          <span style={{ marginLeft: '30px', marginBottom: '15px' }}>or create new account now </span>
+          <span style={{ marginLeft: '30px' }}><Link to="/register"> sign up </Link></span>
         </div>
       </Fragment>
     )

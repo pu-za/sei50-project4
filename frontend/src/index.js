@@ -9,6 +9,7 @@ import './styles/frontIndex.css'
 import './styles/footer.css'
 import './styles/auth.css'
 import './styles/frontPage.css'
+import './styles/emoji.css'
 
 
 ReactDOM.render(<App />, document.getElementById('root'))

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 
 class Footer extends Component {
@@ -11,7 +12,9 @@ class Footer extends Component {
 
     return (
       <Fragment>
-        Footer
+        <Link to="/">Showcase emoji</Link> 
+
+        <button className="scroll-button" onClick={ () => window.scrollTo({ top: 0 })}>scroll</button>
         
       </Fragment>
     )
