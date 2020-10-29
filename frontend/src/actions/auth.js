@@ -1,5 +1,5 @@
 import axios from 'axios'
-import setHeader from '../utils/setHeader'
+/* import setHeader from '../utils/setHeader' */
 
 
 
@@ -16,9 +16,9 @@ export const login = async(formData, history) => {
   if (res.data) {
     await localStorage.setItem('token', res.data.token)
 
-    if (localStorage.token) {
+    /* if (localStorage.token) {
       setHeader(localStorage.token)
-    }
+    } */
   }
   console.log('user logged in')
   history.push('/')
@@ -44,7 +44,7 @@ export const logout = async(history) => {
   
   await localStorage.removeItem('token')
 
-  setHeader()
+  /* setHeader() */
   console.log('user logged out')
   return history.push('/')
 }

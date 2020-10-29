@@ -20,13 +20,14 @@
   margin-bottom: 30px;
   animation-name: jump;
   animation-duration: 0.5s;
-
+  position: relative;
+  font-family: 'Concert One', cursive;
 }
 
 .board > span
 {
   margin-bottom: 60px;
-  font-size: 30px;
+  font-size: 32px;
 
 }
 @keyframes jump {
@@ -43,7 +44,7 @@ a
 
 a:hover
 {
-  color: lightblue;
+  color: teal;
 }
 
 .row
@@ -60,52 +61,42 @@ a:hover
 
 .half
 {
-  width: 50%;
+  width: 100%;
   min-height: 30vh;
   padding: 30px;
-  background-color: lightgreen;
+  position: relative;
+  background-color: #fff;
+  font-size: 17.5px;
+  font-weight: 500;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  text-align: left;
 }
 
-.emojii
+
+
+
+.whale
 {
-  width: 30px;
-  height: 30px;
-  animation-name: move;
-  animation-duration: 5s;
   position: absolute;
-  
+  bottom: 30px;
+  right: 30px;
+  height: 50%;
 }
 
-@keyframes move {
-  0% {
-    top: 0;
-    right: 0;
-
-  }
-  10% {
-    top: 10%;
-    right: 20%;
-  }
-  30% {
-    top: 20%;
-    right: 30%;
-  }
-  50% {
-    top: 40%;
-    right: 50%;
-  }
-  70% {
-    top: 60%;
-    right: 70%;
-  }
-  90% {
-    top: 80%;
-    right: 90%;
-  }
-  100% {
-    top: 100%;
-    right: 100%;
-  }
+.ciao
+{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  height: 30%;
 }
+.window
+{
+  position: absolute;
+  top: 15px;
+  right: 30px;
 
-
+  height: calc(100% - 30px);
+}

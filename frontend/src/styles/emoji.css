@@ -33,8 +33,9 @@
   
   position: relative;
   box-sizing: border-box;
-  background-color: teal;
+  background-color: rgb(233, 243, 233);;
   overflow-y: hidden;
+  border-left: 5px solid lightblue;
 }
 .messages-content > div
 {
@@ -45,6 +46,7 @@
   display: block;
   height: 85vh;
   padding: 30px;
+
 }
 .left-content
 {

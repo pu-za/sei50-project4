@@ -31,10 +31,30 @@ class Emoji extends Component {
     }
     if (prevState.comments !== this.state.comments) {
       const commentAPI = await getComments(this.props.match.params.id)
-      this.setState({ comments: commentAPI })
+      //this.setState({ comments: commentAPI })
+
+      const usersAPI = await getUsers()
+      await this.setState({ users: usersAPI })
+      
+      const commentswithuser = []
+      await commentAPI.filter(function(oldData) { 
+        usersAPI.filter(function(newData) {
+          if (oldData.user === newData.id) {
+            commentswithuser.push({
+              id: oldData.id,
+              user: newData.username,
+              text: oldData.text,
+              date: oldData.date
+            })
+          }
+        }) 
+      })
+      this.setState({ comments: commentswithuser })
 
     }
   }
+
+
   handleChange = (e) => {
     this.setState({ formData: { ...this.state.formData, [e.target.name]: e.target.value } })
 
@@ -46,10 +66,10 @@ class Emoji extends Component {
   }
 
   render() {
-    const { emoji, comments, users } = this.state
+    const { emoji, comments } = this.state
     const { text } = this.state.formData
     
-    const commentswithuser = []
+    /* const commentswithuser = []
     comments.filter(function(oldData) { 
       users.filter(function(newData) { 
         if (oldData.user === newData.id) {
@@ -61,7 +81,7 @@ class Emoji extends Component {
           })
         }
       }) 
-    })
+    })  */
 
     return (
       <Fragment>
@@ -86,7 +106,7 @@ class Emoji extends Component {
                   <p>Comment section</p>
                   <div>
                     {
-                      comments && commentswithuser.map(comment=><div className="comment" key={ comment.id } ><span>{ comment.user } - { moment(comment.date).format('YYYY-MM-DD hh:mm:ss') }</span> { comment.text } <button className="del-com-button" onClick={ ()=> removeComment(emoji.id, comment.id)}>x</button></div>)
+                      comments && comments.map(comment=><div className="comment" key={ comment.id } ><span>{ comment.user } - { moment(comment.date).format('YYYY-MM-DD hh:mm:ss') }</span> { comment.text } <button className="del-com-button" onClick={ ()=> removeComment(emoji.id, comment.id)}>x</button></div>)
                     }
                   </div>
 

@@ -3,7 +3,6 @@ import { login } from '../actions/auth'
 
 import { Link, withRouter } from 'react-router-dom'
 
-
 class Login extends Component {
 
   state = {
@@ -48,7 +47,7 @@ class Login extends Component {
             
             <label htmlFor='password' className='input-label'>
               <span>password</span>
-              <input type='text' className='auth-input' name='password' value={ password } onChange={ e=> this.handleChange(e) } />
+              <input type='password' className='auth-input' name='password' value={ password } onChange={ e=> this.handleChange(e) } />
             </label>
             <button className='auth-button' type='submit'>Login</button>
           </form>

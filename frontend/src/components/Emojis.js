@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
+import up from '../styles/up-arrow.png'
 
 class Emojis extends Component {
 
 
 
   render() {
-    const { emojis, history, element } = this.props
+    const { emojis, history, element, description, category } = this.props
     
     
     return (
@@ -15,16 +16,17 @@ class Emojis extends Component {
 
           <div className="category-content">
             <div className="category-title">
-              Activity
+              {
+                category
+              }
 
-              <button className="scroll-button" onClick={ () => window.scrollTo({ top: 0 })}>scroll</button>
+              <button className="scroll-button" onClick={ () => window.scrollTo({ top: 0 })}><img src={ up } width="24px" /></button>
             </div>
             <div className="category-describe">
 
-              We revisit our roots by designing an all new pack of flat-colored emoji icons. <br/>
-              Flat Emoji 1.0 takes 200 popular signature emoji and offers a simplified design, <br />
-              plus 2 bordered versions (black, pearl), for a total of 600 icons.
-
+              {
+                description
+              }
 
             </div>
             <div className="emojis-box">

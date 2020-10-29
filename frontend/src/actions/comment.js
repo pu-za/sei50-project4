@@ -1,11 +1,5 @@
 import axios from 'axios'
 
-const config = {
-  headers: {
-    'Authorization': `Bearer ${ localStorage.token }`,
-    'Content-Type': 'application/json'
-  }
-}
 
 export const getComments = async(emojiId) => {
   try {
@@ -18,6 +12,13 @@ export const getComments = async(emojiId) => {
 }
 
 export const removeComment = async(emojiId, commentId) => {
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${ localStorage.token }`,
+      'Content-Type': 'application/json'
+    }
+  }
+
   try {
     const res = await axios.delete(`/api/comments/${emojiId}/${commentId}`, config)
     return res.data
@@ -28,6 +29,12 @@ export const removeComment = async(emojiId, commentId) => {
 }
 
 export const postComment = async(emojiId, formData) => {
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${ localStorage.token }`,
+      'Content-Type': 'application/json'
+    }
+  }
   try {
     const res = await axios.post(`/api/comments/${emojiId}/`, formData, config)
     return res.data

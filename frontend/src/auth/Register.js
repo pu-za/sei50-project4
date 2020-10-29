@@ -51,11 +51,11 @@ class Register extends Component {
             </label>
             <label htmlFor='password' className='input-label'>
               <span>password:</span>
-              <input type='text' className='auth-input' name='password' value={ password } onChange={ e=> this.handleChange(e) } />
+              <input type='password' className='auth-input' name='password' value={ password } onChange={ e=> this.handleChange(e) } />
             </label>
             <label htmlFor='passwordConfirmation' className='input-label'>
               <span>repeat password:</span>
-              <input type='text' className='auth-input' name='passwordConfirmation' value={ passwordConfirmation } onChange={ e=> this.handleChange(e) } />
+              <input type='password' className='auth-input' name='passwordConfirmation' value={ passwordConfirmation } onChange={ e=> this.handleChange(e) } />
             </label>
             <button className='auth-button' type='submit'>Register</button>
           </form>

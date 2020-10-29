@@ -1,5 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import whale from '../styles/whale.jpg'
+import ciao from '../styles/Ciao.gif'
+import window from '../styles/window.jpg'
+
 
 class FrontIndex extends Component {
 
@@ -14,12 +18,15 @@ class FrontIndex extends Component {
         <div className="board">
           <span>Express Yourself</span> 
           <Link to='/register'>get started</Link>
-
-          
+          <img src={ ciao } className="ciao" />
+          <img src={ whale } className="whale" />
         </div>
         <div className="row">
           <div className="half">
-            New for 2020! JoyPixels 6.0 includes 3,342 originally crafted icon designs and is 100% Unicode 13 compatible. We offer the largest selection of files ranging from png, svg, iconjar, sprites, and fonts.
+            Emotions behind  Emoji - Do you know what they are?? <br />
+            Words provide endless ways to tell <br /> somebody what you’re thinking or feeling. <br />
+            But sometimes a picture says it all <br />
+            <img src={ window } className='window' />
           </div>
         </div>
       </Fragment>

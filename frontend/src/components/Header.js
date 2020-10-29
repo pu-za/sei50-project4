@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
 import { logout } from '../actions/auth'
 import logoutimg from '../styles/logout.png'
+
 class Header extends Component {
   state = {
     loggedIn: this.props.loggedIn
@@ -36,7 +37,10 @@ class Header extends Component {
           loggedIn && <button className="logout" onClick={ () => this.handleLogout() }><img src={ logoutimg } height="24px" /></button>
         }
         
-        <div className="webName" onClick={ () => history.push('/')}>Showcase emoji</div>
+        
+
+        <h1 className="webName" onClick={ () => history.push('/')}>Emojis</h1>
+        
         <div className="toggleBox">
 
           <button className="toggleButton" onClick={()=> this.props.setMenu( !menu )}>Menu</button>
@@ -67,7 +71,6 @@ class Header extends Component {
               </div>
             </Fragment>
           }
-          
         </div>
       </Fragment>
     )
