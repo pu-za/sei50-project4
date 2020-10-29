@@ -95,9 +95,9 @@ class Emoji extends Component {
                   <p>category: {emoji.category}</p>
                   <p><img src={emoji.image} /></p>
                   
-                  <form onSubmit={ e=> this.handleSubmit(e) } >
+                  <form autoComplete="off" onSubmit={ e=> this.handleSubmit(e) } >
                     add comment
-                    <input type="text" className="comment-input" name="text" value={text} onChange={ e=> this.handleChange(e) } />
+                    <input type="text" autoComplete="off" className="comment-input" name="text" value={text} onChange={ e=> this.handleChange(e) } />
                     <p><button className="auth-button">Send</button></p>
 
                   </form>

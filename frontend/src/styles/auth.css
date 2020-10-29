@@ -12,6 +12,7 @@
   background-color: rgb(233, 243, 233);
   flex-direction: column;
   flex-wrap: wrap;
+  position: relative;
 }
 .auth-form
 {
@@ -26,6 +27,14 @@
   overflow: hidden;
   animation-name: jump;
   animation-duration: 0.5s;
+}
+.error-msg
+{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: red;
+  font-size: 17.5px;
 }
 @keyframes jump {
   from { width: 0; }
