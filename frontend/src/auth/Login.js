@@ -55,7 +55,7 @@ class Login extends Component {
               <span >e-mail:</span>
               <input type='text' className='auth-input' autoComplete="off" id='email' name='email' value={ email } onChange={ e=> this.handleChange(e) } required />
             
-            </label>  
+            </label>
             
             <label htmlFor='password' className='input-label'>
               <span>password</span>
