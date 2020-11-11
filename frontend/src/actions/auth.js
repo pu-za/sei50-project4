@@ -17,9 +17,6 @@ export const login = async(formData, history) => {
     if (res.data) {
       await localStorage.setItem('token', res.data.token)
 
-      /* if (localStorage.token) {
-        setHeader(localStorage.token)
-      } */
     }
     console.log('user logged in')
     history.push('/')

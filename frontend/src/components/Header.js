@@ -36,8 +36,6 @@ class Header extends Component {
         {
           loggedIn && <button className="logout" onClick={ () => this.handleLogout() }><img src={ logoutimg } height="24px" /></button>
         }
-        
-        
 
         <h1 className="webName" onClick={ () => history.push('/')}>Emojis</h1>
         
