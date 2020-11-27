@@ -202,11 +202,13 @@ export const getUsers = async() => {
 Log out function
 ```
 # Remove token from the local storage
+
 export const logout = async(history) => {
  await localStorage.removeItem('token')
 return history.push('/')
 }
 ```
+
 * Comments section
 Users can add the comment on the emojis page.
 <img src="./emoji.png" />
