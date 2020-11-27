@@ -201,6 +201,7 @@ export const getUsers = async() => {
 ```
 Log out function
 ```
+```
 # Remove token from the local storage
 
 export const logout = async(history) => {
