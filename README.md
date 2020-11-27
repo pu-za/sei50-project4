@@ -4,6 +4,8 @@ This is a Django API and full-stack web application with a relational database t
 8 days
 ## Goal
 To produce a full-stack web application using Python, Django, React, and CSS.
+## Project: Solo
+
 ## Technologies
 - React, lifecycle methods
 - Django, rest_framework
@@ -199,7 +201,7 @@ export const getUsers = async() => {
 ```
 Log out function
 ```
-# remove token from the local storage
+# Remove token from the local storage
 export const logout = async(history) => {
  await localStorage.removeItem('token')
 return history.push('/')
@@ -208,8 +210,19 @@ return history.push('/')
 * Comments section
 Users can add the comment on the emojis page.
 <img src="./emoji.png" />
+
+## Challenges
+Every day was a challenge. I was encountered with many errors and bugs each day especially with relationships and CRUD functionalities.
+ 
+ 
+## Wins
+Fixing errors and bugs has always been the win for me. Also been able to complete my MVP on time with a fully functional application.
+
+
 ## Future development
  
 The next part of the development process is to add more features. Such as user functionalities: add emojis, likes / unlike emojis. Animate frontend elements and make it smoother.
- 
+
+## Key Learnings
+Planning is the key when we are working in a solo project with a certain timeframe. Once we get the idea how to channelize it then things start getting easier to break and prioritize it.
  
